@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Inter%3Awght%40400%3B500%3B700%3B900&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+    <title>Gestión de Categorías</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+<body>
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f4] px-10 py-3">
+            </header>
+
+        <div class="gap-1 px-6 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col w-80">
+            <h2 id="form-categoria-titulo" class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Gestionar Categorías</h2>
+            
+            <div class="px-4 pb-4">
+                <a href="Productos.html" class="text-[#1172d4] hover:underline text-sm font-medium">
+                    Ir a Registrar Producto →
+                </a>
+            </div>
+
+            <form id="form-categoria">
+                <input type="hidden" id="edit-categoria-id">
+
+                <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+                    <label class="flex flex-col min-w-40 flex-1">
+                        <p class="text-[#111418] text-base font-medium leading-normal pb-2">Nueva Categoría</p>
+                        <input
+                            id="input-nueva-categoria"
+                            placeholder="Nombre de la categoría"
+                            class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] focus:outline-0 focus:ring-0 border border-[#dbe0e6] bg-white focus:border-[#dbe0e6] h-14 placeholder:text-[#617589] p-[15px] text-base font-normal leading-normal"
+                        />
+                    </label>
+                </div>
+                <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+                    <label class="flex flex-col min-w-40 flex-1">
+                        <p class="text-[#111418] text-base font-medium leading-normal pb-2">Descripción (Opcional)</p>
+                        <textarea
+                            id="input-nueva-categoria-desc"
+                            placeholder="Descripción de la categoría"
+                            class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] focus:outline-0 focus:ring-0 border border-[#dbe0e6] bg-white focus:border-[#dbe0e6] min-h-24 placeholder:text-[#617589] p-[15px] text-base font-normal leading-normal"
+                        ></textarea>
+                    </label>
+                </div>
+                <div class="flex px-4 py-3 justify-end">
+                    <button
+                        id="form-categoria-btn"
+                        type="submit"
+                        class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#1172d4] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+                    >
+                        <span class="truncate">Añadir Categoría</span>
+                    </button>
+                </div>
+            </form> 
+            
+            <div id="cancel-edit-container" class="px-4 py-1 justify-end hidden">
+                <button
+                    id="btn-cancelar-edicion"
+                    type="button"
+                    class="text-sm text-gray-600 hover:text-red-600"
+                >
+                    Cancelar edición
+                </button>
+            </div>
+
+            <h3 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Categorías Existentes</h3>
+            <div id="lista-categorias-existentes" class="border border-[#dbe0e6] rounded-lg overflow-hidden mt-2">
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="Categoria.js" defer></script>
+</body>
+</html>

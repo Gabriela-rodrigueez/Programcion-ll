@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+    <link as="style" href="https://fonts.googleapis.com/css2?display=swap&family=Inter%3Awght%40400%3B500%3B700%3B900&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <title> Inventario y Alertas</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-text: #2f343a;
+            --secondary-text: #6b7280;
+            --background-light: #f7f9fb;
+            --card-background: #ffffff;
+            --border-color: #e5e7eb;
+            --accent-color-1: #4a90e2;--accent-color-2: #f5a623;--accent-color-3: #d0021b;--alert-critical: #d0021b;
+            --alert-warning: #f5a623;
+            --alert-info: #4a90e2;
+            --shadow-subtle: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+        }
+        .btn-ajustar { cursor: pointer; }
+    </style>
+    </head>
+    <body>
+    <div class="relative flex h-auto min-h-screen w-full flex-col  group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+    <div class="layout-container flex h-full grow flex-col">
+    
+    <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[var(--border-color)] px-10 py-3">
+        <div class="flex items-center gap-4 text-[var(--primary-text)]">
+            <div class="size-4">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path></svg>
+            </div>
+            <h2 class="text-[var(--primary-text)] text-lg font-bold leading-tight tracking-[-0.015em]">Almacén JR</h2>
+        </div>
+        <div class="flex flex-1 justify-end gap-8">
+                <div class="flex items-center gap-9">
+                  <a class="text-[#111418] text-sm font-medium leading-normal" href="../Gestión de Productos/Productos.html">Productos</a>
+                  <a class="text-[#111418] text-sm font-medium leading-normal" href="Inventario_alerta.html">Inventario</a>
+                  <a class="text-[#111418] text-sm font-medium leading-normal" href="../Gestión de proveedores/Proveedores.html">Proveedores</a>
+                  <a class="text-[#111418] text-sm font-medium leading-normal" href="../Registro de compras/Compras_proveedores.html">Compras</a>
+                  <a class="text-[#111418] text-sm font-medium leading-normal" href="../Gestión de ventas/Ventas.html">Ventas</a>
+                  <a class="text-[#111418] text-sm font-medium leading-normal" href="../Reportes/Reportes.html">Informes</a>
+                  <a class="text-[#111418] text-sm font-medium leading-normal" href="../Gestión de usuarios/Usuarios.html">Usuarios</a>
+                </div>
+        </div>
+    </header>
+
+    <div class="px-10 flex flex-1 justify-center py-8">
+    <div class="layout-content-container flex flex-col max-w-[1200px] flex-1 gap-8">
+        <div class="flex flex-wrap justify-between gap-3">
+            <div class="flex min-w-72 flex-col gap-2">
+                <p class="text-[var(--primary-text)] tracking-tight text-[36px] font-bold leading-tight">Panel Predictivo</p>
+                <p class="text-[var(--secondary-text)] text-base font-normal leading-normal">Información clave y pronósticos para la cadena de suministro.</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="flex flex-col gap-3 rounded-xl p-6 bg-[var(--card-background)] shadow-[var(--shadow-subtle)]">
+                <p class="text-[var(--secondary-text)] text-sm font-medium leading-normal">Nivel de Stock Actual</p>
+                <div class="h-20 w-full flex items-end justify-center">
+                    <div class="h-16 w-full bg-gradient-to-r from-blue-300 to-[var(--accent-color-1)] rounded-md"></div>
+                </div>
+                <p id="card-stock-total" class="text-[var(--primary-text)] tracking-light text-2xl font-bold leading-tight">Cargando...</p>
+                <p class="text-[var(--secondary-text)] text-xs font-normal leading-normal">Total de unidades en almacén.</p>
+            </div>
+            <div class="flex flex-col gap-3 rounded-xl p-6 bg-[var(--card-background)] shadow-[var(--shadow-subtle)]">
+                <p class="text-[var(--secondary-text)] text-sm font-medium leading-normal">Artículos Críticos (Stock Bajo)</p>
+                <div class="h-20 w-full flex items-end justify-center">
+                    <div class="h-16 w-full bg-gradient-to-r from-yellow-300 to-[var(--accent-color-2)] rounded-md"></div>
+                </div>
+                <p id="card-stock-critico" class="text-[var(--primary-text)] tracking-light text-2xl font-bold leading-tight">Cargando...</p>
+                <p class="text-[var(--secondary-text)] text-xs font-normal leading-normal">Productos por debajo del stock mínimo.</p>
+            </div>
+            <div class="flex flex-col gap-3 rounded-xl p-6 bg-[var(--card-background)] shadow-[var(--shadow-subtle)]">
+                <p class="text-[var(--secondary-text)] text-sm font-medium leading-normal">Próximos a Vencer</p>
+                <div class="h-20 w-full flex items-end justify-center">
+                    <div class="h-16 w-full bg-gradient-to-r from-red-300 to-[var(--accent-color-3)] rounded-md"></div>
+                </div>
+                <p id="card-stock-vencimiento" class="text-[var(--primary-text)] tracking-light text-2xl font-bold leading-tight">Cargando...</p>
+                <p class="text-[var(--secondary-text)] text-xs font-normal leading-normal">Productos que vencen en los próximos 15 días.</p>
+            </div>
+        </div>
+
+        <h2 class="text-[var(--primary-text)] text-2xl font-bold ...">Alertas Prioritarias</h2>
+        <div id="lista-alertas-prioritarias" class="flex flex-col gap-4">
+            <p class="text-[var(--secondary-text)]">Cargando alertas...</p>
+        </div>
+
+        <h2 class="text-[var(--primary-text)] text-2xl font-bold ...">Resumen Detallado de Inventario</h2>
+        <div class="@container">
+            <div class="flex overflow-hidden rounded-xl border ...">
+                <table class="flex-1 w-full">
+                    <thead class="bg-[var(--background-light)]">
+                        <tr class="text-[var(--secondary-text)] text-sm font-medium ...">
+                            <th class="px-4 py-3 text-left w-[250px]">Nombre del Artículo</th>
+                            <th class="px-4 py-3 text-left w-[150px]">Categoría</th>
+                            <th class="px-4 py-3 text-left w-[100px]">Stock</th>
+                            <th class="px-4 py-3 text-left w-[100px]">Mín.</th>
+                            <th class="px-4 py-3 text-left flex-1">Estado</th>
+                            <th class="px-4 py-3 text-right w-[120px]">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-inventario-body">
+                        <tr>
+                            <td colspan="6" class="h-[72px] px-4 py-2 text-center text-[var(--secondary-text)]">Cargando inventario...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <script src="Inventario_alerta.js" defer></script>
+</body>
+</html>

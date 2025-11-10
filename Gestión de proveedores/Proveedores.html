@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Inter%3Awght%400%3B500%3B700%3B900&family=Noto+Sans%3Awght%400%3B500%3B700%3B900"
+    />
+    <title>Proveedores</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f4] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#111418]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path></svg>
+            </div>
+            <h2 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em]">Almacén JR</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="../Gestión de Productos/Productos.html">Productos</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="../Inventario y Alertas/Inventario_alerta.html">Inventario</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="Proveedores.html">Proveedores</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="../Registro de compras/Compras_proveedores.html">Pedidos</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="../Gestión de ventas/Ventas.html">Ventas</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="../Reportes/Reportes.html">Informes</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="../Gestión de usuarios/Usuarios.html">Usuarios</a>
+
+            </div>
+          </div>
+          </header>
+
+        <div class="gap-1 px-6 flex flex-1 justify-center py-5">
+          
+          <div class="layout-content-container flex flex-col w-80">
+            <h2 class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Añadir Nuevo Proveedor</h2>
+            
+            <form id="form-nuevo-proveedor">
+                <input type="hidden" name="id_Proveedor" id="id_Proveedor_edit" value="">
+              <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+                <label class="flex flex-col min-w-40 flex-1">
+                  <p class="text-[#111418] text-base font-medium leading-normal pb-2">Nombre del Proveedor</p>
+                  <input
+                    name="Nombre"
+                    placeholder="Ingrese nombre del proveedor"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] focus:outline-0 focus:ring-0 border border-[#dbe0e6] bg-white focus:border-[#dbe0e6] h-14 placeholder:text-[#617589] p-[15px] text-base font-normal leading-normal"
+                    required
+                  />
+                </label>
+              </div>
+              
+              <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+                <label class="flex flex-col min-w-40 flex-1">
+                  <p class="text-[#111418] text-base font-medium leading-normal pb-2">Contacto (Teléfono/Email)</p>
+                  <input
+                    name="Contacto"
+                    placeholder="Ingrese dato de contacto"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] focus:outline-0 focus:ring-0 border border-[#dbe0e6] bg-white focus:border-[#dbe0e6] h-14 placeholder:text-[#617589] p-[15px] text-base font-normal leading-normal"
+                  />
+                </label>
+              </div>
+              
+              <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+                <label class="flex flex-col min-w-40 flex-1">
+                  <p class="text-[#111418] text-base font-medium leading-normal pb-2">Dirección</p>
+                  <input
+                    name="Direccion"
+                    placeholder="Ingrese dirección"
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] focus:outline-0 focus:ring-0 border border-[#dbe0e6] bg-white focus:border-[#dbe0e6] h-14 placeholder:text-[#617589] p-[15px] text-base font-normal leading-normal"
+                  />
+                </label>
+              </div>
+              
+              <div class="flex px-4 py-3 justify-end">
+                <button
+                    id="form-proveedor-submit-btn"  
+                    type="submit"
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#1172d4] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+                >
+                  <span class="truncate">Añadir Proveedor</span>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <p class="text-[#111418] tracking-light text-[32px] font-bold leading-tight min-w-72">Gestionar Proveedores</p>
+            </div>
+            <div class="px-4 py-3 @container">
+              <div class="flex overflow-hidden rounded-lg border border-[#dbe0e6] bg-white">
+                <table class="flex-1">
+                  <thead>
+                    <tr class="bg-white">
+                      <th class="px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium">Nombre del Proveedor</th>
+                      <th class="px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium">Dirección</th>
+                      <th class="px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium">Contacto</th>
+                      <th class="px-4 py-3 text-left text-[#111418] w-60 text-[#617589] text-sm font-medium">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tabla-proveedores-body">
+                    </tbody>
+                </table>
+              </div>
+            </div>
+            <h2 class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Productos Suministrados por Proveedor</h2>
+            <div class="px-4 py-3 @container">
+              <div class="flex overflow-hidden rounded-lg border border-[#dbe0e6] bg-white">
+                <table class="flex-1">
+                  <thead>
+                    <tr class="bg-white">
+                      <th class="px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium">Nombre del Producto</th>
+                      <th class="px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium">Cantidad en Stock</th>
+                      <th class="px-4 py-3 text-left text-[#111418] w-60 text-sm font-medium">Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tabla-productos-suministrados-body">
+                    <tr class="border-t border-t-[#dbe0e6]">
+                      <td class="h-[72px] px-4 py-2 text-[#617589]" colspan="3">Seleccione un proveedor para ver sus productos</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    
+    <script src="Proveedores.js" defer></script>
+  </body>
+</html>
